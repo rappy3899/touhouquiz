@@ -377,8 +377,12 @@ function specialMode():void {
     openButton.style.color = 'white';
     modeSelect.classList.add('hide');
     quiz_area.classList.remove('hide');
-    const button = document.querySelector('button') as HTMLButtonElement;
-    button.style.backgroundColor = 'yellow';
+    const buttons = document.querySelectorAll<HTMLButtonElement>('button');
+    buttons.forEach(button => {
+        button.style.backgroundColor = 'yellow';
+        button.style.color = 'black';
+    })
+
     resultButton.disabled = true;
     resultButton.style.cursor = 'not-allowed';
     resultButton.style.backgroundColor = 'gray';
