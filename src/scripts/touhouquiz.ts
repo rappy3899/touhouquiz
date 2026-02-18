@@ -373,8 +373,6 @@ function specialMode():void {
     const header = document.querySelector('header') as HTMLElement;
     header.style.backgroundColor = 'yellow';
     header.style.color = 'black';
-    openButton.style.backgroundColor = 'red';
-    openButton.style.color = 'white';
     modeSelect.classList.add('hide');
     quiz_area.classList.remove('hide');
     const buttons = document.querySelectorAll<HTMLButtonElement>('button');
@@ -382,7 +380,8 @@ function specialMode():void {
         button.style.backgroundColor = 'yellow';
         button.style.color = 'black';
     })
-
+    openButton.style.backgroundColor = 'red';
+    openButton.style.color = 'white';
     resultButton.disabled = true;
     resultButton.style.cursor = 'not-allowed';
     resultButton.style.backgroundColor = 'gray';
