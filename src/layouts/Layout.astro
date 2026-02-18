@@ -2,22 +2,132 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>東方4択クイズ | 奏色瑠音</title>
+		<meta
+			name="description"
+			content="東方Projectに関する4択クイズになります。問題は現在56問あります。一度間違えるとやり直しになるモードもあります。是非挑戦してみてね！"
+		/>
+		<link rel="stylesheet" href="../styles/touhouquiz.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
 	</head>
 	<body>
-		<slot />
+		<dialog
+			id="tips"
+			style="margin: auto; background-color: rgb(255, 255, 136); color: black; border: solid 1px black; border-radius: 10px;"
+		>
+			<h2>遊び方</h2>
+			<ul>
+				<li>問題数の分母が全部の問題数、分子が今の問題です。</li>
+				<li>
+					答えだと思う選択肢を選んで、「答え合わせ」を押すと答え合わせできます。
+				</li>
+				<li>
+					答え合わせ画面では「次の問題」を押せば次の問題に進み、「結果」を押せばゲームを終了してゲーム結果を閲覧できます。用意されている問題をすべて解いていた場合は「次の問題」が「結果発表」になります。
+				</li>
+				<li>「リセット」ボタンを押せばゲームがリセットされます。</li>
+				<li>
+					満身創痍モードは問題の順番は固定ですが、1度間違えると即終了です。
+				</li>
+			</ul>
+			<b
+				>このゲームは上海アリス幻樂団様作成の「東方Project」の2次創作です。</b
+			>
+			<button id="closeButton">閉じる</button>
+		</dialog>
+		<header>
+			<h1>東方Project4択クイズ</h1>
+			<p>
+				東方Projectについての4択問題になります。
+				<button
+					style="width: auto; background-color: yellow; color: black;"
+					id="openButton">遊び方</button
+				>
+			</p>
+		</header>
+		<main>
+			<div id="left_area">
+				<img src="" alt="" />
+			</div>
+			<div
+				id="modeSelect"
+				style="text-align: center; margin: auto; width: 60%;"
+			>
+				<h2>モードを選んでね！</h2>
+				<button
+					style="width: 40%; background-color: yellow; color: black;"
+					onclick="normalMode()" id="normalButton">ノーマルモード</button
+				>
+				<button
+					style="width: 40%; background-color: yellow; color: black;"
+					onclick="specialMode()" id="specialButton">満身創痍モード</button
+				>
+			</div>
+			<div id="quiz_area" class="hide">
+				<div id="question_area">
+					<h3 style="text-align: center;" id="question_ber"></h3>
+					<h2 id="question" style="text-align: center;"></h2>
+					<form name="answers" id="answers">
+						<input
+							type="radio"
+							name="answer"
+							id="answer1"
+							value="1"
+						/><label for="answer1" id="label1"></label>
+						<input
+							type="radio"
+							name="answer"
+							id="answer2"
+							value="2"
+						/><label for="answer2" id="label2"></label>
+						<input
+							type="radio"
+							name="answer"
+							id="answer3"
+							value="3"
+						/><label for="answer3" id="label3"></label>
+						<input
+							type="radio"
+							name="answer"
+							id="answer4"
+							value="4"
+						/><label for="answer4" id="label4"></label>
+					</form>
+				</div>
+				<h3 id="result"></h3>
+				<div id="button_area" style="margin-top: 5px;">
+					<button
+						type="button"
+						id="resultOrNextButton"
+						style="margin-left: 0;"></button>
+					<button
+						type="button"
+						id="resultButton"
+						class="hide">結果</button
+					>
+					<button type="button" id="resetButton"
+						>リセット</button
+					>
+				</div>
+			</div>
+			<div id="right_area">
+				<img src="" alt="" />
+			</div>
+		</main>
+		<footer
+			style="text-align: center; background-color: black; color: white;"
+		>
+			<p>
+				<a href="https://ruin3899.github.io" rel="me" style="display: block; text-decoration: none; color: white;"
+					>© 2025 ruin3899 制作者HPへ</a>
+			</p>
+		</footer>
+		<script src="../scripts/touhouquiz.ts"></script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
