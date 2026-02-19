@@ -365,6 +365,11 @@ function normalMode():void {
     modeSelect.classList.add('hide');
     quiz_area.classList.remove('hide');
     startQuiz();
+    console.log(special);
+    const radios = document.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+    radios.forEach(radio => {
+        radio.dataset.special = "false";
+    })
 }
 
 document.querySelector('#specialButton')?.addEventListener('click', specialMode);
@@ -387,4 +392,9 @@ function specialMode():void {
     resultButton.style.backgroundColor = 'gray';
     resultButton.classList.add('hide');
     startQuiz();
+    console.log(special);
+    const radios = document.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+    radios.forEach(radio => {
+        radio.dataset.special = "true";
+    })
 }

@@ -34,10 +34,6 @@ footer {
     font-size: 1.2em;
   }
 
-
-
-
-
   #quiz_area {
     display: block;
 
@@ -67,12 +63,20 @@ footer {
     background-color: yellow;
   }
 
+  input[type="radio"][data-special="true"]+label:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+  }
+  
+  input[type="radio"][data-special="true"]:checked+label {
+    background-color: red;
+  }
+
   input[type="radio"]:checked.correct+label {
     background-color: #00ff00;
   }
 
   input[type="radio"]:checked.incorrect+label {
-    background-color: red;
+    background-color: blue;
   }
 
   #button_area {
@@ -137,12 +141,20 @@ footer {
     background-color: yellow;
   }
 
+  input[type="radio"][data-special="true"]+label:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+  }
+
+  input[type="radio"][data-special="true"]:checked+label {
+    background-color: red;
+  }
+
   input[type="radio"]:checked.correct+label {
     background-color: #00ff00;
   }
 
   input[type="radio"]:checked.incorrect+label {
-    background-color: red;
+    background-color: blue;
   }
 
   #button_area {
