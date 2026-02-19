@@ -254,8 +254,6 @@ function answerCheck():void {
         input_answers[Number(selectedans) - 1].classList.add("correct");
         correct_count++;
     } else {
-        result.innerText = `不正解！正解は${correctans}番です！${explanation}`
-        input_answers[Number(selectedans) - 1].classList.add("incorrect");
         if (special) {
             badEnd = true;
             showResult();
